@@ -4,6 +4,9 @@ const studentRoute = require("./routes/studentRoute");
 require("dotenv").config();
 require("./model/dbConnect");
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 app.use("/api/student", studentRoute);
 
 app.listen(process.env.port || 4000, function() {
