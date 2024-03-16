@@ -17,4 +17,14 @@ module.exports = {
             next(error)
         }
     },
+
+    // Get All Courses
+    getAllCourse: async(req, res, next) => {
+        try {
+            let courses = await course.findAll({})
+            res.status(200).send(courses)
+        } catch (error) {
+            next(error)
+        }
+    },
 }

@@ -39,6 +39,7 @@ module.exports = {
             if(!student) {
                 throw(createError(404, "Student does not exist."))
             }
+            res.status(200).send(student)
         } catch (error) {
             next(error)
         }
