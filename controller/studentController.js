@@ -44,5 +44,20 @@ module.exports = {
             next(error)
         }
     },
-    
+
+    // Update Student by ID
+    updateStudent: async(req, res, next) => {
+        try {
+            let id = req.params.student_id
+
+            const updateStudent = await student.update(req.body, {where: {student_id: id}})
+
+            if(!student) {
+                throw(createError(404, "Student does not exist."))
+            }
+            res.status(200).send(updateStudent)
+        } catch (error) {
+            next(error)
+        }
+    },
 }
