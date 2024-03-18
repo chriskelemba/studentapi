@@ -33,13 +33,13 @@ module.exports = {
     // Get Student by ID
     getStudent: async(req, res, next) => {
         try {
-            let id = req.params.student_id
-            let student = await student.findOne({where: {student_id: id}})
+            let id = req.params.id
+            let Student = await student.findOne({where: {student_id: id}})
 
             if(!student) {
                 throw(createError(404, "Student does not exist."))
             }
-            res.status(200).send(student)
+            res.status(200).send(Student)
         } catch (error) {
             next(error)
         }
@@ -48,7 +48,7 @@ module.exports = {
     // Update Student by ID
     updateStudent: async(req, res, next) => {
         try {
-            let id = req.params.student_id
+            let id = req.params.id
 
             const updateStudent = await student.update(req.body, {where: {student_id: id}})
 
