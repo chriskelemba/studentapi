@@ -27,4 +27,35 @@ module.exports = {
             next(error)
         }
     },
+    
+    // Get Course by ID
+    getCourse: async(req, res, next) => {
+        try {
+            let id = req.params.id
+            let Course = await course.findOne({where: {course_id: id}})
+
+            if(!course) {
+                throw(createError(404, "Course does not exist."))
+            }
+            res.status(200).send(Course)
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    // Update Course by ID
+    updateCourse: async(req, res, next) => {
+        try {
+            let id = req.params.id
+
+            const updateCourse = await course.update(req.body, {where: {course_id: id}})
+
+            if(!course) {
+                throw(createError(404, "Course does not exist."))
+            }
+            res.status(200).send(updateCourse)
+        } catch (error) {
+            next(error)
+        }
+    },
 }
