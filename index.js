@@ -3,6 +3,7 @@ const app = express();
 const studentRoute = require("./routes/studentRoute");
 const courseRoute = require("./routes/courseRoute");
 const regRoute = require("./routes/regRoute");
+const createError = require("http-errors");
 require("dotenv").config();
 require("./model/dbConnect");
 
