@@ -10,7 +10,7 @@ module.exports = {
             const {regName, regEmail, regPassword} = req.body;
             const exists = await reg.findOne({where: {regEmail}})
             if (exists) {
-                throw createError.Conflict(`${email} has already been registered.`)
+                throw createError.Conflict(`${regEmail} has already been registered.`)
             }
             const newUser = new reg({regName, regEmail, regPassword})
             const savedUser = await newUser.save()
@@ -21,6 +21,7 @@ module.exports = {
             next(error)
         }
     },
+    
     // Get All Reg
     getAllReg: async(req, res, next) => {
         try {
