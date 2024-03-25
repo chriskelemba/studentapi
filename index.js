@@ -26,7 +26,7 @@ app.use((err, req, res, next) => {
         res.status(401).send({
             error: {
                 status: 401,
-                message: "Unauthorized: Invalid username/password"
+                message: "Unauthorized: No Access"
             }
         });
     } else {
