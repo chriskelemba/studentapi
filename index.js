@@ -4,11 +4,19 @@ const studentRoute = require("./routes/studentRoute");
 const courseRoute = require("./routes/courseRoute");
 const regRoute = require("./routes/regRoute");
 const createError = require("http-errors");
+const cors = require("cors");
 require("dotenv").config();
 require("./model/dbConnect");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+app.use(helmet())
+const corsOptions = {
+    origin: "http//localhost:3000"
+}
+
+app.use(cors(corsOptions));
 
 app.use("/api/student", studentRoute);
 app.use("/api/course", courseRoute);
