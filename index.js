@@ -11,9 +11,8 @@ require("./model/dbConnect");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(helmet())
 const corsOptions = {
-    origin: "http//localhost:3000"
+    origin: "http://localhost:3000"
 }
 
 app.use(cors(corsOptions));

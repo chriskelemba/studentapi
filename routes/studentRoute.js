@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/getAllStudent", verifyAccessToken, studentController.getAllStudent);
 router.get("/getStudent/:id", verifyAccessToken, studentController.getStudent);
-router.post("/addStudent", verifyAccessToken, studentController.addStudent);
+router.post("/addStudent", studentController.addStudent);
 router.patch("/updateStudent/:id", verifyAccessToken, studentController.updateStudent);
 router.delete("/deleteStudent/:id", verifyAccessToken, studentController.deleteStudent);
 
