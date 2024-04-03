@@ -33,4 +33,6 @@ db.sequelize.sync({force: false})
     console.log("Re sync done");
 });
 
+// db.student.belongsTo(db.course, {foreignKey: "course_id"});
+
 module.exports = db;
